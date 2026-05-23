@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Clawd Morning Digest - Saturday May 23, 2026</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 640px; margin: 0 auto; padding: 16px; background: #f9fafb; color: #111827; }
+  .header { background: #111827; color: #fff; padding: 16px 20px; border-radius: 8px 8px 0 0; }
+  .header h1 { margin: 0; font-size: 18px; font-weight: 600; }
+  .header .meta { color: #9ca3af; font-size: 12px; margin-top: 4px; }
+  .status-bar { background: #1f2937; color: #d1d5db; padding: 10px 20px; font-size: 13px; border-radius: 0 0 8px 8px; margin-bottom: 16px; }
+  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px 20px; margin-bottom: 16px; }
+  table { font-size: 13px; }
+  details > summary { list-style: revert; }
+  details > summary::-webkit-details-marker { display: revert; }
+  details[open] > summary { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Clawd Morning Digest</h1>
+    <div class="meta">Saturday, May 23, 2026 &middot; 08:22 AM</div>
+</div>
+<div class="status-bar"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ef4444;margin-right:6px;"></span>status unavailable</div>
+<div class="card">
+
+        <div style="margin-bottom:20px;">
+            <h2 style="color:#111827;font-size:15px;margin:0 0 8px;border-bottom:2px solid #e5e7eb;padding-bottom:6px;">
+                &#9881; System Health
+            </h2>
+            
+            <div style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                <span style="font-size:13px;line-height:1.5;">Email poller (launchd): stale: last 48m ago</span>
+                <div style="color:#9ca3af;font-size:11px;margin-top:4px;">health-check.py</div>
+            </div>
+            <div style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                <span style="font-size:13px;line-height:1.5;">OAuth token validity: clawd@ API fail: Using keyring backend: keyring<br>error: HTTP request failed</span>
+                <div style="color:#9ca3af;font-size:11px;margin-top:4px;">health-check.py</div>
+            </div>
+            <div style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                <span style="font-size:13px;line-height:1.5;">Email poller (launchd): stale: last 11m ago</span>
+                <div style="color:#9ca3af;font-size:11px;margin-top:4px;">health-check.py</div>
+            </div>
+            <div style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                <span style="font-size:13px;line-height:1.5;">Email poller (launchd): stale: last 17m ago</span>
+                <div style="color:#9ca3af;font-size:11px;margin-top:4px;">health-check.py</div>
+            </div>
+            <div style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                <span style="font-size:13px;line-height:1.5;">Email poller (launchd): stale: last 40m ago</span>
+                <div style="color:#9ca3af;font-size:11px;margin-top:4px;">health-check.py</div>
+            </div>
+            <div style="padding:10px 0;border-bottom:1px solid #f3f4f6;">
+                <span style="font-size:13px;line-height:1.5;">DAILY HEALTH REPORT (May 23)<br><br>PASSED: 51/59<br><br>FAILED:<br>  Email poller (launchd): stale: last 84m ago<br>    CAUSE: Hardcoded path, crash, or stale lock file from prior rapid-fire runs.<br>    FIX: Check log for 'Locked' pattern. If stuck: rm /tmp/clawd-email-check.lock. If crash: check ~/bin/email-check.py error. Restart: launchctl kickstart -k gui/$(id -u)/org.thirdway.clawd-email<br><br>  Expected launchd agents: not loaded: com.thirdway.revision-tracker<br>    CAUSE: Agent plist not loaded after reboot or manual unload.<br>    FIX: Load missing: launchctl load ~/Library/LaunchAgents/[missing-agent].plist<br><br>  Daily cron log freshness: stale (>36h): revision-tracker (43h)<br>    CAUSE: Unknown.<br>    FIX: See ~/.clawd/atlas-hints.md or inspect log directly.<br><br>  Sheet 5 schema: 8/419 misaligned<br>    CAUSE: No write validation. Agents append raw data without prefix enforcement.<br>    FIX: Build shared Sheet append helper with schema validation. All agents must use it.<br><br>  Sheet 5 / Drive alignment: 8/20 missing drive_link<br>    CAUSE: Transient API error during location column writes. The location column (N) exists and the health check correctly skips wiki/inline artifacts.<br>    FIX: Retry the failed writes. If persistent, check Sheets API quota or column format.<br><br>  Startup emits registries: startup exited rc=1: <br>    CAUSE: session-startup.sh is timing out at 120s because it's making many Google Sheets read calls that are hitting the per-minute read quota, causing repeated retries/backoff until the timeout trips.<br>    FIX: Per atlas investigation (see atlas-state.json)<br><br>  Drive ownership (clawd@ My Drive): 2 files owned by clawd@ outside Shared Drive: AIMS - Data Request Emails (4 Drafts) - ; Untitled<br>    CAUSE: Subagent deck-creation workflow for Kauffman Keystone Deck wrote 7 artifacts (fonts, color palette, copy changes, original draft) to clawd@ My Drive instead of the Shared Drive. Same spec gap identified since May 4: at least one subagent spec still lacks an explicit Shared Drive parent folder ID for file creation.<br>    FIX: Per atlas investigation (see atlas-state.json)<br><br>  Automation drift (launchd vs disk): 5 jobs failing (>2 threshold): com.thirdway.board-agenda-scraper, com.thirdway.drive-lint-daily, com.thirdway.drive-lint<br>    CAUSE: Unknown.<br>    FIX: See ~/.clawd/atlas-hints.md or inspect log directly.<br><br>TASKS: 8 do_date overdue (stragglers) / 11 due_date overdue (missed deadlines) / 7 stuck in_progress >24h (backlog)<br>UNPROCESSED EMAILS: 0 unprocessed</span>
+                <div style="color:#9ca3af;font-size:11px;margin-top:4px;">health-check.py</div>
+            </div>
+        </div>
+    <div style="margin-bottom:20px;">
+        <h2 style="color:#111827;font-size:15px;margin:0 0 8px;border-bottom:2px solid #e5e7eb;padding-bottom:6px;">
+            &#128233; Client Response Needed (1)
+        </h2>
+        <table style="width:100%;border-collapse:collapse;">
+            
+        <tr style="border-bottom:1px solid #e5e7eb;">
+            <td style="padding:8px 6px;vertical-align:top;width:65px;"><span style="background:#ca8a04;color:#fff;padding:2px 6px;border-radius:3px;font-size:11px;font-weight:600;">MEDIUM</span></td>
+            <td style="padding:8px 6px;font-size:13px;line-height:1.4;">
+                <details>
+                    <summary style="cursor:pointer;font-weight:600;list-style:revert;">2 emails awaiting client reply (72h+) <span style="color:#dc2626;font-size:11px;font-weight:600;">ACTION NEEDED</span></summary>
+                    <div style="padding:8px 0 4px 12px;border-left:2px solid #e5e7eb;margin-top:6px;"><p>2 client thread(s) unanswered &gt;72h (window: last 14 days).</p><div style='margin-bottom:16px;padding:10px;border-left:3px solid #c0392b;background:#fdf6f0'><div style='font-weight:bold;color:#c0392b'>11.7 days unanswered &mdash; gwilliams@baytechschool.org</div><div style='color:#666;font-size:13px'>Subject: ACOE v2 Targets</div><div style='font-size:13px;margin-top:4px'><a href='https://mail.google.com/mail/u/0/#inbox/19e1820b0ed86e92'>open thread</a> | Sent: 2026-05-11 10:44 UTC</div><div style='margin-top:8px;font-style:italic;color:#555;font-size:13px'>Suggested nudge: "Following up on this. Any update or when would be a good time to discuss?"</div></div><div style='margin-bottom:16px;padding:10px;border-left:3px solid #c0392b;background:#fdf6f0'><div style='font-weight:bold;color:#c0392b'>8.8 days unanswered &mdash; christina.jordan@aimsk12.org</div><div style='color:#666;font-size:13px'>Subject: Re: Documents for AICPS I/AIPCS II Material Revision</div><div style='font-size:13px;margin-top:4px'><a href='https://mail.google.com/mail/u/0/#inbox/19e23eaba270b322'>open thread</a> | Sent: 2026-05-14 07:23 UTC</div><div style='margin-top:8px;font-style:italic;color:#555;font-size:13px'>Suggested nudge: "Following up on this. Any update or when would be a good time to discuss?"</div></div><p style='color:#888;font-size:12px'>Scenario 67. Dedup: 3d. Tune tracking in <code>ops/config/client-email-domains.json</code>.</p></div>
+                </details>
+                <div style="color:#9ca3af;font-size:11px;margin-top:2px;">client-response-monitor.py</div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+</div>
+<div style="text-align:center;color:#9ca3af;font-size:11px;padding:8px;">
+    7 items &middot; generated 08:22 AM
+</div>
+</body>
+</html>
